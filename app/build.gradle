@@ -50,6 +50,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     // COROUTINE
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1-native-mt'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1-native-mt'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1-native-mt'
 
     // LOTTIE
