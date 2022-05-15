@@ -13,7 +13,7 @@
         >
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/fragmentLoginLottie"
+            android:id="@+id/fragmentRegisterLottie"
             android:layout_width="192dp"
             android:layout_height="192dp"
             android:layout_marginTop="32dp"
@@ -26,7 +26,7 @@
             />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/fragmentLoginCardViewUsername"
+            android:id="@+id/fragmentRegisterCardViewUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
@@ -38,7 +38,7 @@
             app:cardElevation="3dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragmentLoginLottie"
+            app:layout_constraintTop_toBottomOf="@id/fragmentRegisterLottie"
             >
 
             <LinearLayout
@@ -61,12 +61,9 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/_fragmentRegisterLayoutUsername"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:hint="@string/username"
                     android:layout_weight="5"
-                    app:layout_constraintTop_toBottomOf="@id/fragmentLoginLottie"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -95,7 +92,7 @@
             app:cardElevation="3dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragmentLoginCardViewUsername"
+            app:layout_constraintTop_toBottomOf="@id/fragmentRegisterCardViewUsername"
             >
 
             <LinearLayout
@@ -117,16 +114,13 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/_fragmentRegisterLayoutEmail"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:hint="@string/email_address"
                     android:layout_weight="5"
-                    app:layout_constraintTop_toBottomOf="@id/fragmentLoginLottie"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fragmentLoginInputEmail"
+                        android:id="@+id/fragmentRegisterInputEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textEmailAddress"
@@ -139,7 +133,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/fragmentLoginCardViewPassword"
+            android:id="@+id/fragmentRegisterCardViewPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -173,18 +167,19 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/_fragmentRegisterLayoutPassword"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"
+                    android:layout_height="wrap_content"
                     android:hint="@string/password"
                     android:layout_weight="5"
-                    app:layout_constraintTop_toBottomOf="@id/fragmentLoginLottie"
+                    app:layout_constraintTop_toBottomOf="@id/fragmentRegisterCardViewEmail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     >
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/fragmentLoginInputPassword"
+                        android:id="@+id/fragmentRegisterInputPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPassword"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -194,20 +189,20 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/fragmentLoginConfirmButton"
+            android:id="@+id/fragmentRegisterConfirmButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:text="@string/create_account"
-            app:layout_constraintTop_toBottomOf="@id/fragmentLoginCardViewPassword"
+            app:layout_constraintTop_toBottomOf="@id/fragmentRegisterCardViewPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
 
         <TextView
-            android:id="@+id/fragmentLoginTextViewForgotPass"
+            android:id="@+id/fragmentRegisterTextViewForgotPass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/forgot_password"
@@ -217,11 +212,11 @@
             android:focusable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fragmentLoginConfirmButton"
+            app:layout_constraintTop_toBottomOf="@id/fragmentRegisterConfirmButton"
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/fragmentLoginFacebookButton"
+            android:id="@+id/fragmentRegisterFacebookButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -234,13 +229,13 @@
             android:drawableStart="@drawable/ic_facebook"
             android:drawableTint="#2033DD"
             android:padding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/fragmentLoginTextViewForgotPass"
+            app:layout_constraintTop_toBottomOf="@id/fragmentRegisterTextViewForgotPass"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/fragmentLoginGoogleButton"
+            android:id="@+id/fragmentRegisterGoogleButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -254,7 +249,7 @@
             android:drawableStart="@drawable/ic_google_plus"
             android:drawableTint="#FF0000"
             android:padding="8dp"
-            app:layout_constraintTop_toBottomOf="@id/fragmentLoginFacebookButton"
+            app:layout_constraintTop_toBottomOf="@id/fragmentRegisterFacebookButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
