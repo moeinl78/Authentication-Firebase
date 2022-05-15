@@ -5,11 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.airbnb.lottie.LottieDrawable
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
+import ir.ariyana.loginsystem.R
 import ir.ariyana.loginsystem.databinding.FragmentProfileBinding
+import ir.ariyana.loginsystem.utils.CheckConnection
 
 class ProfileFragment: Fragment() {
 
     private lateinit var binding: FragmentProfileBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +28,30 @@ class ProfileFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
+
+        binding.fragmentProfileConnectionLottie.repeatCount = LottieDrawable.INFINITE
+
+        if(CheckConnection(binding.root.context).isConnected) {
+            binding.fragmentProfileConnectionLottie.visibility = View.GONE
+            checkCurrentUser()
+        }
+        else {
+            binding.fragmentProfileConnectionLottie.visibility = View.VISIBLE
+            Snackbar
+                .make(binding.root.context, requireView(), "Check your internet connection!", Snackbar.LENGTH_SHORT)
+                .setAction("Try Again") {
+
+                }
+                .show()
+
+        }
+    }
+
+    private fun checkCurrentUser() {
+        if(auth.currentUser == null) {
+            findNavController().navigate(R.id.action_profileFragment_to_vpFragment)
+        }
     }
 }
