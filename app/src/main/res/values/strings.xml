@@ -6,4 +6,6 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="sign_in_with_facebook">Sign In with Facebook</string>
     <string name="sign_in_with_google">Sign In with Google</string>
+    <string name="email_address">Email Address</string>
+    <string name="create_account">Create Account</string>
 </resources>
