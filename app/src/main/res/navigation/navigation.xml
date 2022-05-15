@@ -7,5 +7,17 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="ir.ariyana.loginsystem.ui.fragments.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_vpFragment"
+            app:destination="@id/vpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vpFragment"
+        android:name="ir.ariyana.loginsystem.ui.fragments.VpFragment"
+        android:label="VpFragment" >
+        <action
+            android:id="@+id/action_vpFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 </navigation>

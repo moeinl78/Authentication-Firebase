@@ -3,6 +3,9 @@ package ir.ariyana.loginsystem.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import ir.ariyana.loginsystem.R
@@ -21,31 +24,18 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.mainFragmentContainerView) as NavHostFragment
+        val navController = navHostFragment.findNavController()
+
         when(auth.currentUser) {
+
             null -> {
-                binding.mainFragmentContainerView.visibility = View.GONE
-                binding.mainViewPager2.visibility = View.VISIBLE
+                navController.navigate(R.id.action_profileFragment_to_vpFragment)
             }
 
             else -> {
-                binding.mainFragmentContainerView.visibility = View.VISIBLE
-                binding.mainViewPager2.visibility = View.GONE
+                navController.navigate(R.id.action_vpFragment_to_profileFragment)
             }
         }
-
-        val adapter = AdapterViewpager(supportFragmentManager, lifecycle)
-        binding.mainViewPager2.adapter = adapter
-
-        TabLayoutMediator(binding.mainTablayout, binding.mainViewPager2) { tab, position ->
-            when(position) {
-                0 -> {
-                    tab.text = "Login"
-                }
-
-                1 -> {
-                    tab.text = "Register"
-                }
-            }
-        }.attach()
     }
 }
